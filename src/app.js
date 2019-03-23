@@ -6,7 +6,7 @@ import Index from './pages/index'
 
 import configStore from './store'
 
-import './app.scss'
+import './styles/custom.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -20,7 +20,7 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/index/index',
+      'pages/home/index',
       'pages/catefory/index',
       'pages/shopcart/index',
       'pages/my/index',
@@ -38,7 +38,7 @@ class App extends Component {
       "backgroundColor": "#f9f9f9",
       "list": [
         {
-          pagePath: "pages/index/index",
+          pagePath: "pages/home/index",
           iconPath: "./images/nav/home-off.png",
           selectedIconPath: "./images/nav/home-on.png",
           text: "首页"
