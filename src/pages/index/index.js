@@ -3,6 +3,7 @@ import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
 import { add, minus, asyncAdd } from '~/actions/counter'
+import request from '~/utils/request';
 
 import './index.scss'
 
@@ -10,33 +11,45 @@ import './index.scss'
 @connect(({ counter }) => ({
   counter
 }), (dispatch) => ({
-  add () {
+  add() {
     dispatch(add())
   },
-  dec () {
+  dec() {
     dispatch(minus())
   },
-  asyncAdd () {
+  asyncAdd() {
     dispatch(asyncAdd())
   }
 }))
 class Index extends Component {
 
-    config = {
+  config = {
     navigationBarTitleText: '首页'
   }
 
-  componentWillReceiveProps (nextProps) {
+  async fethList(){
+    const data = await request.post('shop/goods/list').then(res => {
+      console.log(res,'xx');
+    })
+    console.log(data,'xxx');
+
+  }
+
+  componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps)
   }
 
-  componentWillUnmount () { }
+  componentDidMount(){
+    this.fethList()
+  }
 
-  componentDidShow () { }
+  componentWillUnmount() { }
 
-  componentDidHide () { }
+  componentDidShow() { }
 
-  render () {
+  componentDidHide() { }
+
+  render() {
     return (
       <View className='index'>
         <Button className='add_btn' onClick={this.props.add}>+</Button>
