@@ -1,18 +1,7 @@
 import Taro from '@tarojs/taro';
+import Config from '~/config/index';
+import { HTTP_STATUS } from '~/constants/index';
 import { logError } from './logError';
-
-const base = 'https://api.it120.cc/2431951db2a39cc5c6289d698bad6b37/'
-const HTTP_STATUS = {
-  SUCCESS: 200,
-  CLIENT_ERROR: 400,
-  AUTHENTICATE: 401,
-  FORBIDDEN: 403,
-  NOT_FOUND: 404,
-  SERVER_ERROR: 500,
-  BAD_GATEWAY: 502,
-  SERVICE_UNAVAILABLE: 503,
-  GATEWAY_TIMEOUT: 504
-}
 
 // 读取本地token
 function getStorage(key) {
@@ -20,7 +9,7 @@ function getStorage(key) {
 }
 
 export default {
-  async baseOptions(params, method = 'GET') {
+  async fetch(params, method = 'GET') {
     let { url, data } = params
     const contentType = params.contentType || 'application/x-www-form-urlencoded'
     const token = await getStorage('token')
@@ -31,7 +20,7 @@ export default {
     const option = {
       isShowLoading: false,
       loadingText: '正在加载',
-      url: base + url,
+      url: Config.baseUrl + `/${url}`,
       data: data,
       method: method,
       header: { 'content-type': contentType, 'token': token },
@@ -43,7 +32,7 @@ export default {
         } else if (res.statusCode === HTTP_STATUS.FORBIDDEN) {
           return logError('api', '没有权限访问')
         } else if (res.statusCode === HTTP_STATUS.SUCCESS) {
-          return res.data
+          return res
         }
       },
       error(e) {
@@ -54,10 +43,10 @@ export default {
   },
   get(url, data = '') {
     let option = { url, data }
-    return this.baseOptions(option)
+    return this.fetch(option)
   },
   post: function (url, data, contentType) {
     let params = { url, data, contentType }
-    return this.baseOptions(params, 'POST')
+    return this.fetch(params, 'POST')
   }
 }

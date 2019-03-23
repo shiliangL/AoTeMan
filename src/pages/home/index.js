@@ -1,7 +1,7 @@
 import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
-import { add, minus, asyncAdd } from '~/actions/counter'
+import * as actions from '~/actions/home'
 import { AtGrid } from "taro-ui"
 import request from '~/utils/request';
 import SwiperBar from '~/components/SwiperBar';
@@ -10,33 +10,27 @@ import './index.scss'
 
 @connect(({ counter }) => ({
   counter
-}), (dispatch) => ({
-  add() {
-    dispatch(add())
-  },
-  dec() {
-    dispatch(minus())
-  },
-  asyncAdd() {
-    dispatch(asyncAdd())
-  }
-}))
+}), {
+    ...actions
+  })
 class Index extends Taro.Component {
 
   config = {
     navigationBarTitleText: '首页'
   }
 
-  handleClick(){
-
+  fetchData() {
+    this.props.dispatchFetchBanner().then(res => {
+      console.log(res, 'xx');
+    })
   }
 
 
-  async fethList(){
+  async fethList() {
     const data = await request.get('shop/goods/list').then(res => {
-      console.log(res.data,'sb');
+      console.log(res.data, 'sb');
     })
-    console.log(data,'xxx');
+    console.log(data, 'xxx');
 
   }
 
@@ -44,8 +38,8 @@ class Index extends Taro.Component {
     console.log(this.props, nextProps)
   }
 
-  componentDidMount(){
-    this.fethList()
+  componentDidMount() {
+
   }
 
   componentWillUnmount() { }
@@ -87,10 +81,10 @@ class Index extends Taro.Component {
           ]
         }
         />
-
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
+        {/* <Button className='add_btn' onClick={this.props.add}>+</Button>
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
+        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button> */}
+        <Button className='dec_btn' onClick={this.fetchData.bind(this)}>异步加载我的请求</Button>
         <View><Text>{this.props.counter.num}</Text></View>
         <View><Text>Hello, World</Text></View>
       </View>

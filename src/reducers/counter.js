@@ -1,4 +1,6 @@
-import { ADD, MINUS } from '../constants/counter'
+// reducers 规则函数。纯方法。初始化state的值
+
+import { ADD, MINUS } from '~/constants/index'
 
 const INITIAL_STATE = {
   num: 0
