@@ -1,3 +1,5 @@
+const path = require('path');
+
 const config = {
   projectName: 'AOTMAN',
   date: '2019-3-23',
@@ -25,6 +27,9 @@ const config = {
     }
   },
   defineConstants: {
+  },
+  alias: {
+    '~': path.resolve(__dirname, '..', 'src'),
   },
   copy: {
     patterns: [
@@ -90,6 +95,10 @@ const config = {
           }
         }
       }
+    },
+     devServer:{
+      host: "0.0.0.0",
+      port: 10086
     }
   }
 }
