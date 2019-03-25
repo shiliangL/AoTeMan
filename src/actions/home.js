@@ -1,13 +1,13 @@
 import { createActionToFetch } from '~/utils/reduxToFech'
 
-export const dispatchFetchBanner = payload => createActionToFetch({
+// eslint-disable-next-line import/prefer-default-export
+export const dispatchFetchBanner = () => createActionToFetch({
   url: 'shop/goods/list',
   type: 'LOAD',
-  payload
 })
 
-export const fetch = () => {
-  return {
-    type: 'LOAD'
+export const dispatchAdd = ()=> {
+  return{
+    type:'ADD'
   }
 }

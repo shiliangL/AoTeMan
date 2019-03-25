@@ -22,7 +22,7 @@ import './index.scss'
     dispatch(asyncAdd())
   }
 }))
-class Catefory extends Taro.Component {
+class goodPrice extends Taro.Component {
 
   constructor() {
     super(...arguments)
@@ -105,4 +105,4 @@ class Catefory extends Taro.Component {
   }
 }
 
-export default Catefory
+export default goodPrice

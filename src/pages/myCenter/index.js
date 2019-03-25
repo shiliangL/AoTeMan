@@ -22,7 +22,7 @@ import './index.scss'
     dispatch(asyncAdd())
   }
 }))
-class My extends Component {
+class myCenter extends Component {
 
   config = {
     navigationBarTitleText: '我的'
@@ -81,4 +81,4 @@ class My extends Component {
   }
 }
 
-export default My
+export default myCenter

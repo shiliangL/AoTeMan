@@ -39,7 +39,9 @@ var config = {
         },
         pxtransform: {
           enable: true,
-          config: {}
+          config: {
+            selectorBlackList: ['body']
+          }
         },
         url: {
           enable: true,
@@ -67,6 +69,12 @@ var config = {
           enable: true,
           config: {
             browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
+          }
+        },
+        pxtransform: {
+          enable: true,
+          config: {
+            selectorBlackList: ['body']
           }
         },
         cssModules: {

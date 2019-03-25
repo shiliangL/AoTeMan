@@ -21,10 +21,10 @@ import './index.scss'
     dispatch(asyncAdd())
   }
 }))
-class Shopcart extends Component {
+class GoodThing extends Component {
 
   config = {
-    navigationBarTitleText: 'shopCart'
+    navigationBarTitleText: 'GoodThing'
   }
 
   async fethList(){
@@ -58,4 +58,4 @@ class Shopcart extends Component {
   }
 }
 
-export default Shopcart
+export default GoodThing

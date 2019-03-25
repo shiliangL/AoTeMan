@@ -1,12 +1,19 @@
 import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image } from '@tarojs/components'
+import banner01 from '~/images/banners/banner01.png'
+import banner02 from '~/images/banners/banner02.png'
+import banner03 from '~/images/banners/banner03.png'
+import banner04 from '~/images/banners/banner04.png'
 import './index.scss'
 
 export default class SwiperBar extends Taro.Component {
 
   static defaultProps = {
-    data:[
-      { img:'https://cdn.it120.cc/apifactory/2019/03/01/67fbf361df7a6e7c9aa1dbfaf3d465e1.jpg'}
+    data: [
+      { img: banner01 },
+      { img: banner02 },
+      { img: banner03 },
+      { img: banner04 },
     ]
   }
 

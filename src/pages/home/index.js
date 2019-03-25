@@ -2,14 +2,13 @@ import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import * as actions from '~/actions/home'
-import { AtGrid } from "taro-ui"
-import request from '~/utils/request';
+import { AtGrid, AtNavBar} from "taro-ui"
 import SwiperBar from '~/components/SwiperBar';
 import './index.scss'
 
 
-@connect(({ counter }) => ({
-  counter
+@connect(({ home }) => ({
+  storeNumber: home.storeNumber
 }), {
     ...actions
   })
@@ -21,17 +20,8 @@ class Index extends Taro.Component {
 
   fetchData() {
     this.props.dispatchFetchBanner().then(res => {
-      console.log(res, 'xx');
+      console.log(res, 'result');
     })
-  }
-
-
-  async fethList() {
-    const data = await request.get('shop/goods/list').then(res => {
-      console.log(res.data, 'sb');
-    })
-    console.log(data, 'xxx');
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,10 +39,16 @@ class Index extends Taro.Component {
   componentDidHide() { }
 
   render() {
+    let env = process.env.TARO_ENV === 'h5';
+    const HeaderBar = <View>
+      <AtNavBar className='HeaderBar' fixed title='首页' />
+      <View className='p50' />
+    </View>
     return (
-      <View className='index'>
+      <View className='home'>
+        {env ? HeaderBar : <View className='p10' />}
         <SwiperBar />
-        <AtGrid mode='rect' hasBorder={false} data={
+        <AtGrid mode='square' columnNum={4} hasBorder={false} data={
           [
             {
               image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
@@ -77,16 +73,21 @@ class Index extends Taro.Component {
             {
               image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
               value: '手机馆'
+            },
+            {
+              image: 'https://img14.360buyimg.com/jdphoto/s72x72_jfs/t17251/336/1311038817/3177/72595a07/5ac44618Na1db7b09.png',
+              value: '海淘'
+            },
+            {
+              image: 'https://img30.360buyimg.com/jdphoto/s72x72_jfs/t5770/97/5184449507/2423/294d5f95/595c3b4dNbc6bc95d.png',
+              value: '折扣'
             }
           ]
         }
         />
-        {/* <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button> */}
         <Button className='dec_btn' onClick={this.fetchData.bind(this)}>异步加载我的请求</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+        <Button className='dec_btn' onClick={this.props.dispatchAdd}>Add</Button>
+        <Text>{this.props.storeNumber} 什么 </Text>
       </View>
     )
   }
