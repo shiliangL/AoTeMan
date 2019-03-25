@@ -1,9 +1,22 @@
 ### 项目开发能配置别名？
+```
+/config/index.js 
 
+//中配置
+alias: {
+    '~': 'src'
+},
+
+//使用（ ~ 即指向src文件夹 ）
+import banner01 from '~/images/banners/banner01.png'
+
+```
 
 ### 最怕空气突然的安静,最怕朋友突然的关心,突然的报错
 
 ```
+// 修改文件的、配置错误的情况下注意报错,可能和之前缓存文件有关.temp 删除重新构建启动项目
+
 > AOTMAN@1.0.0 dev:h5 /Users/shiliangl/WebApp/AOTMAN
 > npm run build:h5 -- --watch
 
