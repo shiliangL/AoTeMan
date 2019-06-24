@@ -1,5 +1,9 @@
 
-// 通用配置
-export default {
-  baseUrl:'https://api.it120.cc/2431951db2a39cc5c6289d698bad6b37'
-}
+import Taro from '@tarojs/taro';
+
+// export const baseUrl = 'https://ms-api.caibowen.net';
+export const baseUrl = 'https://m.smzdm.com';
+// 输出日志信息
+export const noConsole = false;
+
+console.log(Taro.getEnv(),'当前编译环境');

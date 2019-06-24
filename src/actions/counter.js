@@ -1,5 +1,7 @@
-// action 纯函数返回对象含Type。用dispatch去触发reducers
-import { ADD, MINUS } from '~/constants/index'
+import {
+  ADD,
+  MINUS
+} from '../constants/counter'
 
 export const add = () => {
   return {
@@ -20,4 +22,3 @@ export function asyncAdd () {
     }, 2000)
   }
 }
-

@@ -1,32 +1,39 @@
-'use strict';
-
-var config = {
-  projectName: 'AOTMAN',
-  date: '2019-3-23',
+const config = {
+  projectName: 'sm-buy',
+  date: '2019-6-24',
   designWidth: 750,
   deviceRatio: {
-    '640': 1.17,
+    '640': 2.34 / 2,
     '750': 1,
-    '828': 0.905
+    '828': 1.81 / 2
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: {
     babel: {
       sourceMap: true,
-      presets: [['env', {
-        modules: false
-      }]],
-      plugins: ['transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+      presets: [
+        ['env', {
+          modules: false
+        }]
+      ],
+      plugins: [
+        'transform-decorators-legacy',
+        'transform-class-properties',
+        'transform-object-rest-spread'
+      ]
     }
   },
-  defineConstants: {},
-  alias: {
-    '~': 'src'
+  defineConstants: {
   },
   copy: {
-    patterns: [],
-    options: {}
+    patterns: [
+    ],
+    options: {
+    }
+  },
+  alias: {
+    '~': 'src'
   },
   weapp: {
     module: {
@@ -34,13 +41,17 @@ var config = {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
+            browsers: [
+              'last 3 versions',
+              'Android >= 4.1',
+              'ios >= 8'
+            ]
           }
         },
         pxtransform: {
           enable: true,
           config: {
-            selectorBlackList: ['body']
+
           }
         },
         url: {
@@ -60,7 +71,6 @@ var config = {
     }
   },
   h5: {
-    esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',
     module: {
@@ -68,13 +78,11 @@ var config = {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
-          }
-        },
-        pxtransform: {
-          enable: true,
-          config: {
-            selectorBlackList: ['body']
+            browsers: [
+              'last 3 versions',
+              'Android >= 4.1',
+              'ios >= 8'
+            ]
           }
         },
         cssModules: {
@@ -86,16 +94,22 @@ var config = {
         }
       }
     },
+    // 自定义 Webpack 配置
+    webpackChain: {},
     devServer: {
-      host: "0.0.0.0",
-      port: 10086
+      proxy: {
+        '/': {
+          target: 'https://m.smzdm.com',
+          changeOrigin: true,
+        }
+      }
     }
   }
-};
+}
 
 module.exports = function (merge) {
-  {
-    return merge({}, config, require("./dev.js"));
+  if (process.env.NODE_ENV === 'development') {
+    return merge({}, config, require('./dev'))
   }
-  return merge({}, config, require("./prod.js"));
-};
+  return merge({}, config, require('./prod'))
+}

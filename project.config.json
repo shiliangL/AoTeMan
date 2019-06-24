@@ -1,11 +1,11 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "AOTMAN",
+  "projectname": "sm-buy",
   "description": "",
   "appid": "touristappid",
   "setting": {
-    "urlCheck": false,
-    "es6": true,
+    "urlCheck": true,
+    "es6": false,
     "postcss": false,
     "minified": false
   },
