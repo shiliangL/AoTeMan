@@ -8,6 +8,14 @@ export default class SwiperBanner extends Component {
     list: []
   }
 
+
+
+  componentDidMount() {
+    console.log(this.props.list);
+
+  }
+
+
   render() {
     const { list } = this.props
     return (

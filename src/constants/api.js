@@ -6,6 +6,7 @@
 export const host = HOST;
 export const hostM = HOST_M;
 /* eslint-enable */
+console.log(host, hostM);
 
 // pic
 export const CDN = 'https://yanxuan.nosdn.127.net';
