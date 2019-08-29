@@ -1,32 +1,48 @@
-'use strict';
+// eslint-disable-next-line import/no-commonjs
+const path = require('path')
 
-var config = {
-  projectName: 'AOTMAN',
-  date: '2019-3-23',
+const config = {
+  projectName: 'cube-taro-wx',
+  date: '2019-8-28',
   designWidth: 750,
   deviceRatio: {
-    '640': 1.17,
+    '640': 2.34 / 2,
     '750': 1,
-    '828': 0.905
+    '828': 1.81 / 2
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: {
     babel: {
       sourceMap: true,
-      presets: [['env', {
-        modules: false
-      }]],
-      plugins: ['transform-decorators-legacy', 'transform-class-properties', 'transform-object-rest-spread']
+      presets: [
+        ['env', {
+          modules: false
+        }]
+      ],
+      plugins: [
+        'transform-decorators-legacy',
+        'transform-class-properties',
+        'transform-object-rest-spread'
+      ]
     }
   },
-  defineConstants: {},
+  defineConstants: {
+  },
   alias: {
-    '~': 'src'
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@components': path.resolve(__dirname, '..', 'src/components'),
+    '@constants': path.resolve(__dirname, '..', 'src/constants'),
+    '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
+    '@styles': path.resolve(__dirname, '..', 'src/styles'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
-    patterns: [],
-    options: {}
+    patterns: [
+    ],
+    options: {
+    }
   },
   weapp: {
     module: {
@@ -34,13 +50,17 @@ var config = {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
+            browsers: [
+              'last 3 versions',
+              'Android >= 4.1',
+              'ios >= 8'
+            ]
           }
         },
         pxtransform: {
           enable: true,
           config: {
-            selectorBlackList: ['body']
+
           }
         },
         url: {
@@ -60,21 +80,19 @@ var config = {
     }
   },
   h5: {
-    esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     module: {
       postcss: {
         autoprefixer: {
           enable: true,
           config: {
-            browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8']
-          }
-        },
-        pxtransform: {
-          enable: true,
-          config: {
-            selectorBlackList: ['body']
+            browsers: [
+              'last 3 versions',
+              'Android >= 4.1',
+              'ios >= 8'
+            ]
           }
         },
         cssModules: {
@@ -85,17 +103,13 @@ var config = {
           }
         }
       }
-    },
-    devServer: {
-      host: "0.0.0.0",
-      port: 10086
     }
   }
-};
+}
 
 module.exports = function (merge) {
-  {
-    return merge({}, config, require("./dev.js"));
+  if (process.env.NODE_ENV === 'development') {
+    return merge({}, config, require('./dev'))
   }
-  return merge({}, config, require("./prod.js"));
-};
+  return merge({}, config, require('./prod'))
+}

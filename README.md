@@ -12,39 +12,6 @@ import banner01 from '~/images/banners/banner01.png'
 
 ```
 
-### 最怕空气突然的安静,最怕朋友突然的关心,突然的报错
-
-```
-// 修改文件的、配置错误的情况下注意报错,可能和之前缓存文件有关.temp 删除重新构建启动项目
-
-> AOTMAN@1.0.0 dev:h5 /Users/shiliangl/WebApp/AOTMAN
-> npm run build:h5 -- --watch
-
-
-> AOTMAN@1.0.0 build:h5 /Users/shiliangl/WebApp/AOTMAN
-> taro build --type h5 "--watch"
-
-👽 Taro v1.2.15
-
-internal/modules/cjs/loader.js:583
-    throw err;
-    ^
-
-Error: Cannot find module '../path'
-    at Function.Module._resolveFilename (internal/modules/cjs/loader.js
-:581:15)
-    at Function.Module._load (internal/modules/cjs/loader.js:507:25)
-    at Module.require (internal/modules/cjs/loader.js:637:17)
-    at require (internal/modules/cjs/helpers.js:22:18)
-    at Object.<anonymous> (/Users/shiliangl/WebApp/AOTMAN/config/index.js:3:12)
-    at Module._compile (internal/modules/cjs/loader.js:689:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
-    at Module.load (internal/modules/cjs/loader.js:599:32)
-    at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
-    at Function.Module._load (internal/modules/cjs/loader.js:530:3)
-
-```
-
 ###  基本开发要求
 
 - 了解掌握react系开发模式
