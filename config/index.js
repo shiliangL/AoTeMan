@@ -1,9 +1,6 @@
-// eslint-disable-next-line import/no-commonjs
-const path = require('path')
-
 const config = {
-  projectName: 'cube-taro-wx',
-  date: '2019-8-28',
+  projectName: 'yy-wx-h5-ui',
+  date: '2019-10-2',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -28,15 +25,6 @@ const config = {
     }
   },
   defineConstants: {
-  },
-  alias: {
-    '@actions': path.resolve(__dirname, '..', 'src/actions'),
-    '@assets': path.resolve(__dirname, '..', 'src/assets'),
-    '@components': path.resolve(__dirname, '..', 'src/components'),
-    '@constants': path.resolve(__dirname, '..', 'src/constants'),
-    '@reducers': path.resolve(__dirname, '..', 'src/reducers'),
-    '@styles': path.resolve(__dirname, '..', 'src/styles'),
-    '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
     patterns: [
@@ -80,9 +68,9 @@ const config = {
     }
   },
   h5: {
+    esnextModules: ['taro-ui'],
     publicPath: '/',
     staticDirectory: 'static',
-    esnextModules: ['taro-ui'],
     module: {
       postcss: {
         autoprefixer: {
