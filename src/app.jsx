@@ -1,3 +1,4 @@
+import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import Index from './pages/index'
 
@@ -15,6 +16,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/login/index',
+      'pages/order/index',
       'pages/my/index',
     ],
     window: {
@@ -42,13 +45,22 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {}
+  componentDidMount () {
+    console.log('componentDidMount app');
 
-  componentDidShow () {}
+  }
 
-  componentDidHide () {}
+  componentDidShow () {
+    console.log('componentDidShow app');
+  }
 
-  componentDidCatchError () {}
+  componentDidHide () {
+    console.log('componentDidHide app');
+  }
+
+  componentDidCatchError () {
+    console.log('componentDidCatchError app');
+  }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数

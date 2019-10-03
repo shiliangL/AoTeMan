@@ -78,11 +78,11 @@ export default class Index extends Component {
   }
 
   navigateToPage() {
-    this.$preload({
-      x: 1,
-      y: 2
-    })
-    Taro.navigateTo({ url: '/pages/my/index' })
+    // this.$preload({
+    //   x: 1,
+    //   y: 2
+    // })
+    Taro.navigateTo({ url: '/pages/order/index' })
   }
 
   render() {
