@@ -11,8 +11,8 @@ import { View, WebView } from '@tarojs/components'
  * 可以参考 ./src/pages/user-login 中的实现
  */
 
- // import WebViewRN from './rn'
-import './webview.scss'
+// import WebViewRN from './rn'
+import './index.scss'
 
 export default class extends Component {
 
@@ -21,19 +21,23 @@ export default class extends Component {
     navigationBarTitleText: ''
   }
 
-  url = ''
-  title = ''
+
+  state = {
+    url: '',
+    title: ''
+  }
 
   componentWillMount() {
-    this.url = decodeURIComponent(this.$router.params.url || '')
-    this.title = decodeURIComponent(this.$router.params.title || '')
-    Taro.setNavigationBarTitle({ title: this.title })
+    const url = decodeURIComponent(this.$router.preload.url || '')
+    const title = decodeURIComponent(this.$router.preload.title || '')
+    this.setState({ url: url })
+    Taro.setNavigationBarTitle({ title: title })
   }
 
   render() {
     return (
       <View className='webview'>
-          <WebView src={this.url} />
+        <WebView src={this.url} />
       </View>
     )
   }

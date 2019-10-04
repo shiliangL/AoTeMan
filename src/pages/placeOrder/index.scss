@@ -1,0 +1,64 @@
+.placeOrder_page {
+  height: 100%;
+
+  .avatar_header {
+    height: 3.75rem /* 60/16 */;
+    background: #E2CDA1;
+    display: flex;
+    align-items: center;
+    padding: 0 1.25rem
+      /* 20/16 */
+    ;
+  }
+
+  .placeOrder_form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .form_item_wrap {
+      flex: 1;
+      padding: 0 .625rem
+        /* 10/16 */
+      ;
+      overflow: auto;
+    }
+
+    .submit_bar {
+      // display: flex;
+      padding: .625rem
+        /* 10/16 */
+      ;
+      background: #fff;
+
+      .time_and_price {
+        border-top: 1px solid #F1F2F3;
+        border-bottom: 1px solid #F1F2F3;
+        height: 2.5rem
+          /* 40/16 */
+        ;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .submit_bar_handler {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .625rem
+          /* 10/16 */
+          0;
+
+        .submit_button {
+          flex: 1;
+          padding-top: .375rem
+            /* 6/16 */
+          ;
+          margin: 0 .625rem;
+        }
+      }
+    }
+  }
+}

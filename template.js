@@ -33,7 +33,7 @@ export default class ${titleCase(dirName)} extends Component {
 
   render() {
     return (
-      <View className="${dirName}-page">
+      <View className="${dirName}_page">
         ${dirName}
       </View>
     )

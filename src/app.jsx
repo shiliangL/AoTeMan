@@ -19,6 +19,10 @@ class App extends Component {
       'pages/login/index',
       'pages/order/index',
       'pages/my/index',
+      'pages/course/index',
+      'pages/coach/index',
+      'pages/placeOrder/index',
+      'pages/webview/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,7 +46,7 @@ class App extends Component {
         selectedIconPath: "./assets/icon/my.png",
         text: "个人"
       }]
-    }
+    },
   }
 
   componentDidMount() {

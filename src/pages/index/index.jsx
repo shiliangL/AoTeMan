@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image, Swiper, SwiperItem } from '@tarojs/components'
-import { AtGrid } from 'taro-ui'
+import { View, Image, Swiper, SwiperItem, Button, Text, Picker } from '@tarojs/components'
+import { AtGrid, AtButton, AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
 
 // import { setStorage, getStorage } from '@utils/storage';
 
@@ -11,6 +11,14 @@ export default class Index extends Component {
   // eslint-disable-next-line react/sort-comp
   config = {
     navigationBarTitleText: '首页'
+  }
+
+  constructor() {
+    super(...arguments)
+    this.state = {
+      isOpened: false,
+      time: '',
+    }
   }
 
   componentWillMount() {
@@ -71,16 +79,38 @@ export default class Index extends Component {
     })
   }
 
-  navigateToPage() {
-    // this.$preload({
-    //   x: 1,
-    //   y: 2
-    // })
-    Taro.navigateTo({ url: '/pages/order/index' })
+  navigateToCoach() {
+    Taro.navigateTo({ url: '/pages/coach/index' })
   }
+
+  navigateToLogin = (value) => {
+    this.setState({
+      isOpened: value
+    })
+  }
+
+  navigateToOrder = () => {
+    Taro.navigateTo({ url: '/pages/placeOrder/index' })
+  }
+
+  onDateChange = (e)=>{
+    const { value } = e.detail
+    this.setState({
+      time: value
+    })
+  }
+
 
   onClickAtGrid(item, index) {
     console.log(item, index);
+    const urlMap = {
+      0: 'https://taro-ui.aotu.io/#/docs/grid',
+      1: 'https://taro-ui.aotu.io/#/docs/grid',
+      2: 'https://taro-ui.aotu.io/#/docs/grid',
+      3: '/pages/webview/index',
+    }
+    this.$preload({ url: urlMap[index] })
+    Taro.navigateTo({ url: index !== 3 ? '/pages/webview/index' : '/pages/course/index' })
   }
 
   render() {
@@ -120,19 +150,19 @@ export default class Index extends Component {
             [
               {
                 image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-                value: '官网'
+                value: '官网',
               },
               {
                 image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                value: '平台'
+                value: '平台',
               },
               {
                 image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
-                value: '客服'
+                value: '客服',
               },
               {
                 image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png',
-                value: '课程'
+                value: '课程',
               }
             ]
           }
@@ -208,12 +238,47 @@ export default class Index extends Component {
             </View>
           </View>
 
+          <View className='list_title_item' hoverClass='ac'>
+            <AtButton className='all_button' size='normal' onClick={this.navigateToCoach.bind(this)}>更多教练</AtButton>
+          </View>
 
-          <View className='list_title_item'>
-            更多教练
+          <View className='list_title_item' hoverClass='ac'>
+            <AtButton className='all_button' size='normal' onClick={() => this.navigateToLogin(true)}>登录测试</AtButton>
+          </View>
+
+          <View className='list_title_item' hoverClass='ac'>
+            <AtButton className='all_button' type='primary' size='normal' onClick={() => this.navigateToOrder(true)}>预约下单</AtButton>
           </View>
 
         </View>
+
+
+        <AtModal isOpened={this.state.isOpened} onClose={() => this.navigateToLogin(false)}>
+          <AtModalHeader>标题</AtModalHeader>
+          <AtModalContent>
+            <View className='page-section'>
+              <Text>开始时间</Text>
+              <View>
+                <Picker mode='date' onChange={this.onDateChange}>
+                  <View className='picker'>
+                    当前选择: {this.state.time ? this.state.time : '请选择'}
+                  </View>
+                </Picker>
+              </View>
+            </View>
+            <View className='page-section'>
+              <Text>结束时间</Text>
+              <View>
+                <Picker mode='date' onChange={this.onDateChange}>
+                  <View className='picker'>
+                    当前选择: {this.state.time ? this.state.time : '请选择'}
+                  </View>
+                </Picker>
+              </View>
+            </View>
+          </AtModalContent>
+          <AtModalAction> <Button onClick={() => this.navigateToLogin(false)}>确定</Button> </AtModalAction>
+        </AtModal>
 
       </View>
     )
