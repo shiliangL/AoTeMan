@@ -4,22 +4,22 @@ import { createAction } from '@utils/redux'
 import request from '../utils/request';
 
 // eslint-disable-next-line no-undef
-const host = HOST
+const baseUrl = process.env.TARO_ENV === 'h5' ? '' : 'http://coachapi.szhcqh.cn'
 
 export const dispatchFetchCourseList = (payload) => createAction({
-  url: host + '/api/Course/List',
+  url: baseUrl + '/api/Course/List',
   type: 'COURSELIST',
   payload
 })
 
 export const dispatFetchSwiper = (payload) => request({
-  url: host + '/api/Banner/List',
+  url: baseUrl + '/api/Banner/List',
   payload
 })
 
 
 export const fetchSwiper = (payload) => request({
-  url: host + '/api/Course/List',
+  url: baseUrl + '/api/Course/List',
   payload
 })
 
@@ -29,7 +29,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   getSwiper: function () {
 //     return request({
-//       url: host + '/api/Banner/List'
+//       url: baseUrl + '/api/Banner/List'
 //     })
 //   },
 //   /**
@@ -37,7 +37,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   getCourseList: function (para) {
 //     return request({
-//       url: host + '/api/Course/List',
+//       url: baseUrl + '/api/Course/List',
 //       data: para
 //     })
 //   },
@@ -46,7 +46,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   getCourseDetail: function (courseId) {
 //     return request({
-//       url: host + '/api/Course/Detail',
+//       url: baseUrl + '/api/Course/Detail',
 //       data: {
 //         courseId
 //       }
@@ -57,7 +57,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   getCoursehStudentes: function (courseId) {
 //     return request({
-//       url: host + '/api/Course/StudentList',
+//       url: baseUrl + '/api/Course/StudentList',
 //       method: 'GET',
 //       data: { courseId }
 //     })
@@ -67,7 +67,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   courseCheck: function (para) {
 //     return request({
-//       url: host + '/api/Course/Check',
+//       url: baseUrl + '/api/Course/Check',
 //       method: 'POST',
 //       data: para
 //     })
@@ -77,7 +77,7 @@ export const fetchSwiper = (payload) => request({
 //   */
 //   joinCourse: function (courseId) {
 //     return request({
-//       url: host + '/api/Course/JoinCourse',
+//       url: baseUrl + '/api/Course/JoinCourse',
 //       method: 'POST',
 //       data: { courseId }
 //     })
@@ -87,7 +87,7 @@ export const fetchSwiper = (payload) => request({
 //  */
 //   setStatus: function (courseId, status) {
 //     return request({
-//       url: host + '/api/Course/SetStatus',
+//       url: baseUrl + '/api/Course/SetStatus',
 //       method: 'POST',
 //       data: { courseId, status }
 //     })
@@ -97,7 +97,7 @@ export const fetchSwiper = (payload) => request({
 //    */
 //   setPractiseTime: function (para) {
 //     return request({
-//       url: host + '/api/Course/SetPractiseTime',
+//       url: baseUrl + '/api/Course/SetPractiseTime',
 //       method: 'POST',
 //       data: para
 //     })

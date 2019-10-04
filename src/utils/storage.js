@@ -4,9 +4,28 @@ const token_key = 'ReservationCoach_token';
 const login_key = 'ReservationCoach_login';
 const userinfo_key = 'ReservationCoach_userinfo';
 
+export function getStorage(key) {
+  return Taro.getStorageSync(key);
+}
+
+export function setStorage(key,data) {
+  return Taro.setStorageSync(key, data);
+}
+
+export function removeStorage(key) {
+  return Taro.removeStorageSync(key);
+}
+
+export function clearAllStorage() {
+  return Taro.clearStorageSync();
+}
+
+// ---------- 华丽的分割线 ----------
+
 export function getToken() {
   return Taro.getStorageSync(token_key);
 }
+
 
 export function setToken(data) {
   return Taro.setStorageSync(token_key, data);

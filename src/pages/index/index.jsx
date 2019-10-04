@@ -1,13 +1,8 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Swiper, SwiperItem } from '@tarojs/components'
-import {
-  AtImagePicker,
-  AtButton,
-  AtGrid,
-  AtCard
-} from 'taro-ui'
+import { AtGrid } from 'taro-ui'
 
-
+// import { setStorage, getStorage } from '@utils/storage';
 
 import './index.scss'
 
@@ -20,10 +15,9 @@ export default class Index extends Component {
 
   componentWillMount() {
     console.log('componentWillMount');
-   }
+  }
 
   componentDidMount() {
-    console.log('componentDidMount');
 
     Taro.getUserInfo().then((res) => {
       console.log(res);
@@ -51,11 +45,11 @@ export default class Index extends Component {
 
   componentDidShow() {
     console.log('componentDidShow');
-   }
+  }
 
   componentDidHide() {
     console.log('componentDidHide');
-   }
+  }
 
 
   onFail(mes) {
@@ -83,6 +77,10 @@ export default class Index extends Component {
     //   y: 2
     // })
     Taro.navigateTo({ url: '/pages/order/index' })
+  }
+
+  onClickAtGrid(item, index) {
+    console.log(item, index);
   }
 
   render() {
@@ -118,7 +116,7 @@ export default class Index extends Component {
 
 
         <View className='grid-list'>
-          <AtGrid mode='square' columnNum={4} hasBorder={false} data={
+          <AtGrid mode='square' onClick={this.onClickAtGrid.bind(this)} columnNum={4} hasBorder={false} data={
             [
               {
                 image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
@@ -142,27 +140,55 @@ export default class Index extends Component {
 
         </View>
 
-        <View className='card-list'>
-          <AtCard
-            note='小Tips'
-            extra='额外信息'
-            title='这是个标题'
-            thumb='http://www.logoquan.com/upload/list/20180421/logoquan15259400209.PNG'
+
+        <View className='swiper-box'>
+          <Swiper
+            className='test-h'
+            indicatorColor='#999'
+            indicatorActiveColor='#333'
+            circular
+            indicatorDots
+            autoplay
           >
-            这也是内容区 可以随意定义功能
-          </AtCard>
+            <SwiperItem>
+              <View className='taro-img slide-image'>
+                <Image mode='widthFix' src='https://img10.360buyimg.com/babel/s700x360_jfs/t25855/203/725883724/96703/5a598a0f/5b7a22e1Nfd6ba344.jpg!q90!cc_350x180' />
+              </View>
+            </SwiperItem>
+            <SwiperItem>
+              <View className='taro-img slide-image'>
+                <Image mode='widthFix' src='https://img11.360buyimg.com/babel/s700x360_jfs/t1/4776/39/2280/143162/5b9642a5E83bcda10/d93064343eb12276.jpg!q90!cc_350x180' />
+              </View>
+            </SwiperItem>
+            <SwiperItem>
+              <View className='taro-img slide-image'>
+                <Image mode='widthFix' src='https://img14.360buyimg.com/babel/s700x360_jfs/t1/4099/12/2578/101668/5b971b4bE65ae279d/89dd1764797acfd9.jpg!q90!cc_350x180' />
+              </View>
+            </SwiperItem>
+          </Swiper>
+        </View>
+
+        <View className='card-list'>
 
         </View>
 
         <View className='page-padding'>
 
-
           <View>
             <View className='at-article'>
-              <View className='app_page__title at-article__h3'>
-                画册设计
+              <View className='app_page_title'>
+                <View className='app_page_title_left'>
+                  <View className='app_page_title_mainTitle'>
+                    画册设计
+                </View>
+                  <View className='app_page_title_subTitle'>
+                    精简概要
+                  </View>
+                </View>
+                <View className='app_page_title_right more'>
+                  更多
+                </View>
               </View>
-              <View className='at-article__info'> 2017-05-07  </View>
               <View className='at-article__content'>
                 <View className='at-article__section'>
                   <View className='at-article__p'>
@@ -180,16 +206,6 @@ export default class Index extends Component {
                 </View>
               </View>
             </View>
-          </View>
-          <AtButton>按钮文案</AtButton>
-          <AtButton openType='getUserInfo' type='primary'>用户信息</AtButton>
-          <AtButton type='secondary' onClick={this.uploadTask.bind(this)}> 上传文件  </AtButton>
-          <AtButton type='secondary' onClick={this.navigateToPage.bind(this)}> 跳转  </AtButton>
-
-          <View>
-            <AtImagePicker
-              onChange={this.onChangeImage.bind(this)}
-            />
           </View>
 
         </View>

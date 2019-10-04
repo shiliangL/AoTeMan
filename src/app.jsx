@@ -33,38 +33,38 @@ class App extends Component {
       borderStyle: 'black',
       list: [{
         pagePath: "pages/index/index",
-        iconPath: "./assets/tab-bar/home.png",
-        selectedIconPath: "./assets/tab-bar/home-active.png",
+        iconPath: "./assets/icon/home.png",
+        selectedIconPath: "./assets/icon/home.png",
         text: "首页"
-      },{
-          pagePath: "pages/my/index",
-        iconPath: "./assets/tab-bar/user.png",
-        selectedIconPath: "./assets/tab-bar/user-active.png",
+      }, {
+        pagePath: "pages/my/index",
+        iconPath: "./assets/icon/my.png",
+        selectedIconPath: "./assets/icon/my.png",
         text: "个人"
       }]
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     console.log('componentDidMount app');
 
   }
 
-  componentDidShow () {
+  componentDidShow() {
     console.log('componentDidShow app');
   }
 
-  componentDidHide () {
+  componentDidHide() {
     console.log('componentDidHide app');
   }
 
-  componentDidCatchError () {
+  componentDidCatchError() {
     console.log('componentDidCatchError app');
   }
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Index />
     )

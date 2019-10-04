@@ -5,11 +5,16 @@ $color-brand-dark: #1dac4c;
 
 
 // app 全局样式
-
-.app_page__title {
+.app_page_title {
   position: relative;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
+  padding-left: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .app_page_title_left {
+    display: flex;
+    align-items: baseline;
+  }
   &:after {
     content: "";
     display: inline-block;
@@ -17,11 +22,33 @@ $color-brand-dark: #1dac4c;
     left: 0;
     top: 50%;
     margin-top: -0.42667rem;
-    width: .1875rem;
+    width: .125rem;
     height: 0.85333rem;
     background-color: $color-brand;
     box-shadow: rgba(97, 144, 232, 0.2) 0px 0.14933rem 0.256rem 0px;
     border-radius: .125rem;
+  }
+
+  &_mainTitle {
+    font-size: 1rem /* 16/16 */;
+  }
+
+  &_subTitle {
+    text-align: right;
+    font-size: .75rem
+      /* 12/16 */
+    ;
+    color: rgba(153, 153, 153, 1);
+    padding-left: .125rem
+      /* 2/16 */
+    ;
+  }
+
+  .more {
+    font-size: .75rem
+      /* 12/16 */
+    ;
+    color: rgba(153, 153, 153, 1);
   }
 }
 

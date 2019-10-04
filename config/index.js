@@ -30,6 +30,7 @@ const config = {
   defineConstants: {
   },
   alias: {
+    '@': path.resolve(__dirname, '..', 'src'),
     '@api': path.resolve(__dirname, '..', 'src/api'),
     '@actions': path.resolve(__dirname, '..', 'src/actions'),
     '@assets': path.resolve(__dirname, '..', 'src/assets'),
