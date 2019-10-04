@@ -208,6 +208,11 @@ export default class Index extends Component {
             </View>
           </View>
 
+
+          <View className='list_title_item'>
+            更多教练
+          </View>
+
         </View>
 
       </View>

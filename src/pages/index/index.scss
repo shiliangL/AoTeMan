@@ -16,7 +16,28 @@
     justify-content: center;
   }
 
-  .page-padding{
-    padding: 1.25rem /* 20/16 */;
+  .page-padding {
+    padding: .625rem
+      /* 10/16 */
+    ;
+
+    .list_title_item {
+      background: #ffffff;
+      color: #474848;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: .375rem
+        /* 6/16 */
+      ;
+      justify-content: center;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+      padding: .375rem
+        /* 6/16 */
+        0;
+      margin: .375rem
+        /* 6/16 */
+        0;
+    }
   }
 }
