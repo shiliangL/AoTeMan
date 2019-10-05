@@ -89,8 +89,12 @@ export default class Index extends Component {
     })
   }
 
-  navigateToOrder = () => {
+  navigateToPlaceOrder = () => {
     Taro.navigateTo({ url: '/pages/placeOrder/index' })
+  }
+
+  navigateToOrder = () => {
+    Taro.navigateTo({ url: '/pages/order/index' })
   }
 
   onDateChange = (e)=>{
@@ -247,7 +251,11 @@ export default class Index extends Component {
           </View>
 
           <View className='list_title_item' hoverClass='ac'>
-            <AtButton className='all_button' type='primary' size='normal' onClick={() => this.navigateToOrder(true)}>预约下单</AtButton>
+            <AtButton className='all_button' type='primary' size='normal' onClick={() => this.navigateToPlaceOrder(true)}>预约下单</AtButton>
+          </View>
+
+          <View className='list_title_item' hoverClass='ac'>
+            <AtButton className='all_button' type='primary' size='normal' onClick={() => this.navigateToOrder(true)}>订单列表</AtButton>
           </View>
 
         </View>

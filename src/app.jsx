@@ -16,12 +16,12 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/login/index',
-      'pages/order/index',
       'pages/my/index',
       'pages/course/index',
       'pages/coach/index',
+      'pages/login/index',
       'pages/placeOrder/index',
+      'pages/order/index',
       'pages/webview/index',
     ],
     window: {

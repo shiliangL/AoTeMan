@@ -2,7 +2,7 @@
   height: 100%;
 
   .avatar_header {
-    height: 3.75rem /* 60/16 */;
+    height: 5rem /* 80/16 */;
     background: #E2CDA1;
     display: flex;
     align-items: center;
@@ -38,6 +38,7 @@
         height: 2.5rem
           /* 40/16 */
         ;
+        padding: .375rem /* 6/16 */ 0;
         display: flex;
         align-items: center;
         justify-content: space-between;

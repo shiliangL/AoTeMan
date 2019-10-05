@@ -35,6 +35,10 @@ export default class Placeorder extends Component {
     console.log(event)
   }
 
+  navigateBack = ()=> {
+    Taro.navigateBack({ delta: 1 })
+  }
+
   render() {
     return (
       <View className='placeOrder_page'>
@@ -101,7 +105,7 @@ export default class Placeorder extends Component {
             </View>
             <View className='submit_bar_handler'>
               <View className='submit_button'>
-                <AtButton formType='reset'>返回</AtButton>
+                <AtButton formType='reset' onClick={this.navigateBack}>返回</AtButton>
               </View>
               <View className='submit_button'>
                 <AtButton type='primary' formType='submit'>提交订单</AtButton>
