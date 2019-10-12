@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro'
+import config from '../config';
+
+
 // import { API_USER, API_USER_LOGIN } from '@constants/api'
 
-const CODE_SUCCESS = '200'
 const CODE_AUTH_EXPIRED = '401'
 
 function getStorage(key) {
@@ -22,16 +24,14 @@ function updateStorage(data = {}) {
  */
 export default async function fetch(options) {
   const { url, payload, method = 'GET', showToast = true, autoLogin = true } = options
-
-  const token = await getStorage('token')
-
+  const { token } = await getStorage(config.login_key)
   const header = {
     'Content-Type': 'application/json',
     'responseType': 'json',
     'dataType': 'json',
     'mode': 'cors',
     'withCredentials': true,
-    'Authorization': token ? token : ''
+    'Authorization': token ? 'bearer ' + token : ''
   }
   // if (method === 'POST') {
   //   header['content-type'] = 'application/json'
@@ -42,14 +42,15 @@ export default async function fetch(options) {
     data: payload,
     header
   }).then(async (res) => {
-    const { code, data } = res.data
-    if (code !== CODE_SUCCESS) {
+    const { code, data, success } = res.data
+    if (!success) {
       if (code === CODE_AUTH_EXPIRED) {
         await updateStorage({})
       }
       return Promise.reject(res.data)
+    }else{
+      return data
     }
-
     // if (url === API_USER_LOGIN) {
     //   await updateStorage(data)
     // }
@@ -60,7 +61,6 @@ export default async function fetch(options) {
     //   return { ...data, uid }
     // }
 
-    return data
   }).catch((err) => {
     const defaultMsg = err.code === CODE_AUTH_EXPIRED ? '登录失效' : '请求异常'
     if (showToast) {

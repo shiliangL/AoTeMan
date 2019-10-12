@@ -1,6 +1,8 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { AtTabs, AtTabsPane, AtButton } from 'taro-ui'
+import { AtTabs, AtButton } from 'taro-ui'
+
+import AppNavBar from '../../components/AppNavBar';
 
 import { dispatFetchSwiper } from '../../api/center';
 
@@ -45,6 +47,8 @@ export default class Order extends Component {
 
     return (
       <View className='order_page'>
+        <AppNavBar />
+
         <View className='order_tab'>
           <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
             {/* {

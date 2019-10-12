@@ -1,8 +1,7 @@
 import Taro from '@tarojs/taro'
+import config from '../config';
 
-const token_key = 'ReservationCoach_token';
-const login_key = 'ReservationCoach_login';
-const userinfo_key = 'ReservationCoach_userinfo';
+const { token_key, login_key, userinfo_key} = config
 
 export function getStorage(key) {
   return Taro.getStorageSync(key);
@@ -51,7 +50,7 @@ export function getLogin() {
   return Taro.getStorageSync(login_key);
 }
 
-export function setLogin(data) {
+export function setLoginInfo(data) {
   return Taro.setStorageSync(login_key, data);
 }
 

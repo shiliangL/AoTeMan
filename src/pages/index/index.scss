@@ -24,10 +24,32 @@
     .list_title_item {
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
       margin: .375rem;
-      .all_button{
+
+      .all_button {
         outline: none;
         border: none;
       }
+    }
+  }
+
+  .card_item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+    // border: 1px solid rgba(0, 0, 0, .2);
+
+    .card_left {
+      display: flex;
+      align-items: center;
+      background: #ccc;
+      width: 180px;
+    }
+
+    .card_right {
+      padding-left: 20px;
+      flex: 1
     }
   }
 }

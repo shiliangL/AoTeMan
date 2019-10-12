@@ -1,6 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View } from '@tarojs/components';
-import { AtInputNumber, AtButton, AtTextarea, AtList, AtListItem } from 'taro-ui'
+import { AtButton, AtTextarea, AtList, AtListItem } from 'taro-ui'
 import './index.scss';
 
 
@@ -13,7 +13,10 @@ export default class Placeorder extends Component {
   constructor() {
     super(...arguments)
     this.state = {
-      value: ''
+      value: '',
+      numberTime: 1,
+      priceTime: 1000,
+      price:0
     }
   }
 
@@ -27,7 +30,31 @@ export default class Placeorder extends Component {
     this.setState({
       value
     })
+
   }
+  addNumbox = (type) => {
+    const { numberTime } = this.state
+    if (type) {
+      if (numberTime >= 500) return
+      this.setState({
+        numberTime: numberTime+1
+      },() => this.totalPrice())
+    } else {
+      if (numberTime <= 1) return
+      this.setState({
+        numberTime: numberTime-1
+      }, () => this.totalPrice())
+    }
+  }
+
+  totalPrice = ()=>{
+    const { numberTime, priceTime } = this.state
+    this.setState({
+      price: numberTime * priceTime
+    })
+  }
+
+
   onSubmit(event) {
     console.log(event)
   }
@@ -35,14 +62,13 @@ export default class Placeorder extends Component {
     console.log(event)
   }
 
-  navigateBack = ()=> {
+  navigateBack = () => {
     Taro.navigateBack({ delta: 1 })
   }
 
   render() {
     return (
       <View className='placeOrder_page'>
-
 
         <View className='placeOrder_form'>
           <View className='form_item_wrap'>
@@ -76,13 +102,6 @@ export default class Placeorder extends Component {
                 <AtListItem hasBorder={false} title='标题文字' arrow='right' />
               </AtList>
 
-              <View className='form_item_title'>
-                期望预约日期
-            </View>
-              <AtList hasBorder={false}>
-                <AtListItem hasBorder={false} title='标题文字' arrow='right' />
-              </AtList>
-
             </View>
           </View>
 
@@ -90,17 +109,23 @@ export default class Placeorder extends Component {
             <View className='time_and_price'>
               <View className='submit_bar_time'>
                 预约次数
-              <AtInputNumber
-                min={0}
-                max={10}
-                step={1}
-                value={this.state.value}
-                onChange={this.handleChange.bind(this)}
-              />
+                <View className='InputNumberBox'>
+                  <View onClick={() => this.addNumbox(0)} className='at-icon at-icon-subtract-circle'></View>
+                  <View className='numbox'> {this.state.numberTime} </View>
+                  <View onClick={() => this.addNumbox(1)} className='at-icon at-icon-add-circle'></View>
+                </View>
+
+                {/* <AtInputNumber
+                  min={0}
+                  max={10}
+                  step={1}
+                  value={this.state.value}
+                  onChange={this.handleChange.bind(this)}
+                /> */}
               </View>
 
               <View className='submit_bar_price'>
-                20000
+                {this.state.price}
               </View>
             </View>
             <View className='submit_bar_handler'>

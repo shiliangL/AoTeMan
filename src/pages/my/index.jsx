@@ -60,7 +60,7 @@ export default class My extends Component {
 
         <View className='avatar_bar'>
           <View className='avatar_bar_left'>
-            <AtAvatar image='http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'></AtAvatar>
+            <AtAvatar circle image='http://storage.360buyimg.com/mtd/home/32443566_635798770100444_2113947400891531264_n1533825816008.jpg'></AtAvatar>
           </View>
           <View className='avatar_bar_right'>
             <View className='avatar_bar_right_l'>

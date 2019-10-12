@@ -28,7 +28,8 @@ class App extends Component {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'black',
+      navigationStyle:'custom',
     },
     tabBar: {
       color: "#666",
@@ -53,6 +54,8 @@ class App extends Component {
     console.log('componentDidMount app');
 
   }
+
+
 
   componentDidShow() {
     console.log('componentDidShow app');

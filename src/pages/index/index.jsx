@@ -1,6 +1,10 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Swiper, SwiperItem, Button, Text, Picker } from '@tarojs/components'
 import { AtGrid, AtButton, AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
+import AppNavBar from '@c/AppNavBar';
+
+import { getUserInfo, setLoginInfo, setUserInfo } from '@utils/storage';
+import { fetchLogin, fetchUserInfo } from '@api/login';
 
 // import { setStorage, getStorage } from '@utils/storage';
 
@@ -26,6 +30,21 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+
+    const userinfo = getUserInfo()
+
+    if (!userinfo) {
+      Taro.login().then(res => {
+        fetchLogin({ code: res.code }).then(result => {
+          const { userId, token, sessionId, openId } = result
+          setLoginInfo({ token, sessionId, openId })
+          fetchUserInfo({ userId }).then(data => {
+            setUserInfo(data)
+          })
+
+        })
+      })
+    }
 
     Taro.getUserInfo().then((res) => {
       console.log(res);
@@ -83,9 +102,19 @@ export default class Index extends Component {
     Taro.navigateTo({ url: '/pages/coach/index' })
   }
 
-  navigateToLogin = (value) => {
-    this.setState({
-      isOpened: value
+  navigateToLogin = () => {
+    // this.setState({
+    //   isOpened: value
+    // })
+    Taro.openCard({
+      cardList: [{
+        cardId: '',
+        code: ''
+      }, {
+        cardId: '',
+        code: ''
+      }]}).then(res=>{
+      console.log(res,'sx');
     })
   }
 
@@ -97,7 +126,7 @@ export default class Index extends Component {
     Taro.navigateTo({ url: '/pages/order/index' })
   }
 
-  onDateChange = (e)=>{
+  onDateChange = (e) => {
     const { value } = e.detail
     this.setState({
       time: value
@@ -120,6 +149,9 @@ export default class Index extends Component {
   render() {
     return (
       <View className='index-page'>
+
+
+        <AppNavBar title='首页' home={false} back={false} />
 
         <View className='swiper-box'>
           <Swiper
@@ -202,7 +234,24 @@ export default class Index extends Component {
           </Swiper>
         </View>
 
-        <View className='card-list'>
+        <View className='card_list'>
+
+          <View className='card_item'>
+            <View className='card_left'>
+              图片
+            </View>
+            <View className='card_right'>
+              <View className='card_right_title'>
+                card_right_title
+              </View>
+              <View className='card_right_tag'>
+                标签
+              </View>
+              <View className='card_right_desc'>
+              描述
+              </View>
+            </View>
+          </View>
 
         </View>
 
@@ -256,6 +305,10 @@ export default class Index extends Component {
 
           <View className='list_title_item' hoverClass='ac'>
             <AtButton className='all_button' type='primary' size='normal' onClick={() => this.navigateToOrder(true)}>订单列表</AtButton>
+          </View>
+
+          <View className='list_title_item' hoverClass='ac'>
+            <AtButton className='all_button' type='primary' size='normal' openType='getUserInfo'> 登录 </AtButton>
           </View>
 
         </View>

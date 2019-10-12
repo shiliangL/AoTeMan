@@ -1,10 +1,9 @@
 // eslint-disable-next-line import/no-commonjs
 import { createAction } from '@utils/redux'
-
 import request from '../utils/request';
+import config from '../config';
 
-// eslint-disable-next-line no-undef
-const baseUrl = process.env.TARO_ENV === 'h5' ? '' : 'http://coachapi.szhcqh.cn'
+const { baseUrl } = config
 
 export const dispatchFetchCourseList = (payload) => createAction({
   url: baseUrl + '/api/Course/List',
