@@ -1,11 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Swiper, SwiperItem, Button, Text, Picker } from '@tarojs/components'
 import { AtGrid, AtButton, AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
-import AppNavBar from '@c/AppNavBar';
 
 import { getUserInfo, setLoginInfo, setUserInfo } from '@utils/storage';
 import { fetchLogin, fetchUserInfo } from '@api/login';
 
+import AppNavBar from '../../components/AppNavBar';
 // import { setStorage, getStorage } from '@utils/storage';
 
 import './index.scss'
@@ -30,9 +30,11 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+    this.getUserInfo()
+  }
 
+  fetchUserinfoBut() {
     const userinfo = getUserInfo()
-
     if (!userinfo) {
       Taro.login().then(res => {
         fetchLogin({ code: res.code }).then(result => {
@@ -45,7 +47,6 @@ export default class Index extends Component {
         })
       })
     }
-
     Taro.getUserInfo().then((res) => {
       console.log(res);
       const { errMsg, userInfo } = res
@@ -113,8 +114,9 @@ export default class Index extends Component {
       }, {
         cardId: '',
         code: ''
-      }]}).then(res=>{
-      console.log(res,'sx');
+      }]
+    }).then(res => {
+      console.log(res, 'sx');
     })
   }
 
@@ -133,6 +135,27 @@ export default class Index extends Component {
     })
   }
 
+  getUserInfo = () => {
+    console.log('微信授权');
+    this.fetchUserinfoBut()
+
+    Taro.getSetting({
+      success: (res) => {
+        console.log(res, '微信授权');
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          Taro.getUserInfo({
+            success: (result) => {
+              console.log(result)
+            }
+          })
+        } else {
+          console.log('请授权');
+          this.fetchUserinfoBut()
+        }
+      }
+    })
+  }
 
   onClickAtGrid(item, index) {
     console.log(item, index);
@@ -248,7 +271,7 @@ export default class Index extends Component {
                 标签
               </View>
               <View className='card_right_desc'>
-              描述
+                描述
               </View>
             </View>
           </View>
@@ -308,7 +331,7 @@ export default class Index extends Component {
           </View>
 
           <View className='list_title_item' hoverClass='ac'>
-            <AtButton className='all_button' type='primary' size='normal' openType='getUserInfo'> 登录 </AtButton>
+            <AtButton className='all_button' type='primary' size='normal' onClick={this.getUserInfo} openType='getUserInfo'> 登录 </AtButton>
           </View>
 
         </View>

@@ -1,8 +1,12 @@
 /* Custom Theme */
-$color-brand: #24d75f;
-$color-brand-light: #5be187;
-$color-brand-dark: #1dac4c;
+// $color-brand: #24d75f;
+// $color-brand-light: #5be187;
+// $color-brand-dark: #1dac4c;
 
+/* Custom Theme */
+$color-brand: #1b7ff5;
+$color-brand-light: #549ff8;
+$color-brand-dark: #1666c4;
 
 // app 全局样式
 
@@ -17,7 +21,9 @@ page,
 .taro_router,
 .taro_page {
   height: 100%;
-  background: #F9FAFB;
+  background: #0F3259;
+  color: #F4F6F8;
+  // background-image: linear-gradient(180deg, rgb(30, 138, 246) 0%, rgb(7, 28, 49) 85%)
 }
 
 .flex-box {

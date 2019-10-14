@@ -15,6 +15,7 @@ class App extends Component {
   // eslint-disable-next-line react/sort-comp
   config = {
     pages: [
+      'pages/scanCode/index',
       'pages/index/index',
       'pages/my/index',
       'pages/course/index',
