@@ -1,0 +1,78 @@
+.batteryMy_page {
+
+  font-size: 14Px;
+
+  .batteryMy_header {
+    background: #0D3461;
+    margin: 20Px;
+    margin-top: 0;
+    border-radius: 8px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header_left_user {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      .user_name{
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .batteryMy_page_list {
+    background: #0D3461;
+    margin: 0 20Px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .batteryMy_page_list_item {
+      cursor: pointer;
+      flex: 1;
+      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+
+  .header_left_qrc {
+
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+
+    .header_left_qrc_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .batteryMy_page_list_item_icon {
+
+    width: 20px;
+    height: 36px;
+    overflow: hidden;
+
+    .arrow_right_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .user_avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .user_avatar_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

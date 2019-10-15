@@ -1,0 +1,139 @@
+.batteryHome_page {
+  width: 100%;
+  height: 100%;
+
+  .batteryHome_page_top {
+    height: 80Px;
+    text-align: center;
+  }
+
+  .batteryHome_page_main {
+
+    .batteryCar {
+      font-size: 12Px;
+      background: #0D3461;
+      margin: 20Px;
+      border-radius: 8Px;
+      display: flex;
+      padding: 20px 0;
+
+      .batteryCar_left {
+        min-width: 60Px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 30px;
+
+        .batteryCar_left_header {
+          height: 40Px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+          margin-bottom: 30px;
+        }
+      }
+
+      .batteryCar_right {
+        flex: 1;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .batteryCar_right_top {
+          height: 40Px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .middle {
+          border-left: 1px solid #A5B3C4;
+          border-right: 1px solid #A5B3C4;
+        }
+
+        .batteryCar_right_bottom {
+          display: flex;
+          margin-top: 20Px;
+
+          .batteryCar_bottom_item {
+            flex: 1;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+
+    .batteryInfoList {
+      margin: 20Px;
+    }
+  }
+
+  .batteryHome_page_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .lightning_btn_wrap {
+      border: 1px solid #08254D;
+      padding: 12Px;
+      border-radius: 50%;
+    }
+
+    .lightning_btn_out {
+      background: #0B3F7F;
+      border-radius: 50%;
+      padding: 10Px;
+
+      .lightning_in {
+        border-radius: 50%;
+        width: 160px;
+        height: 160px;
+        background: #1B7FF4;
+        overflow: hidden;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .lightning_in_text {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          .opne_icon {
+            width: 36px;
+            height: 60px;
+            overflow: hidden;
+
+            .l_open_img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main_car_text {
+    font-size: 14Px;
+    font-weight: 500;
+  }
+
+  .main_car_desc {}
+
+  .mycenter {
+    position: fixed;
+    bottom: 10Px;
+    right: 20Px;
+  }
+
+  .appDrawer {
+    background: red;
+  }
+}

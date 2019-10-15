@@ -1,0 +1,67 @@
+.batteryAbout_page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14Px;
+
+  .batteryAbout_page_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+
+    .product_img_box {
+      width: 214px;
+      height: 228px;
+      overflow: hidden;
+
+      .product_img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .product_img_desc {
+      padding: 10px;
+    }
+  }
+
+  .batteryAbout_page_list {
+    background: #0D3461;
+    margin: 0 20Px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .batteryMy_page_list_item {
+      cursor: pointer;
+      flex: 1;
+      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .batteryMy_page_list_item_title {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+
+  .batteryMy_page_list_item_icon {
+    margin-left: 20px;
+    width: 20px;
+    height: 36px;
+    overflow: hidden;
+
+    .arrow_right_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

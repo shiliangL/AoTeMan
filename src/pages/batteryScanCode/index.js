@@ -6,7 +6,7 @@ import './index.scss';
 import scanCodeBorderImg from '../../assets/battery/icon/scanCode.png'
 import productImg from '../../assets/battery/icon/cp.png'
 
-export default class Scancode extends Component {
+export default class batteryScanCode extends Component {
 
   // eslint-disable-next-line react/sort-comp
   config = {
@@ -34,7 +34,7 @@ export default class Scancode extends Component {
 
   render() {
     return (
-      <View className='scanCode_page'>
+      <View className='batteryScanCode_page'>
         <View className='scanCode_mian'>
           <View className='scanCode_text'> 您暂未绑定电池 </View>
           <View className='scanCode_text'> 请点击“扫描绑定电池”扫描电池二维码进行绑定使用 </View>

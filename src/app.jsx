@@ -15,7 +15,16 @@ class App extends Component {
   // eslint-disable-next-line react/sort-comp
   config = {
     pages: [
-      'pages/scanCode/index',
+      'pages/batteryHome/index',
+      'pages/batteryScanCode/index',
+      'pages/batteryInfo/index',
+      'pages/batteryMy/index',
+      'pages/batteryShare/index',
+      'pages/batteryMyInfo/index',
+      'pages/batteryAbout/index',
+      'pages/batteryIntroduce/index',
+      'pages/batteryService/index',
+      'pages/batteryMore/index',
       'pages/index/index',
       'pages/my/index',
       'pages/course/index',
@@ -24,13 +33,14 @@ class App extends Component {
       'pages/placeOrder/index',
       'pages/order/index',
       'pages/webview/index',
+      'pages/scanCode/index',
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black',
-      navigationStyle:'custom',
+      navigationBarBackgroundColor: '#051621',
+      navigationBarTitleText: '#fff',
+      navigationBarTextStyle: 'white',
+      // navigationStyle:'custom',
     },
     tabBar: {
       color: "#666",

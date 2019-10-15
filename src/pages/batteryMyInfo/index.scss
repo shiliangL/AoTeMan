@@ -1,0 +1,95 @@
+.batteryMyInfo_page {
+
+  font-size: 14Px;
+
+  .batteryMy_header {
+    background: #0D3461;
+    margin: 20Px;
+    margin-top: 0;
+    border-radius: 8px;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header_left_user {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .user_name {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .batteryMy_page_list {
+    background: #0D3461;
+    margin: 10px 20Px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .batteryMy_page_list_item {
+      cursor: pointer;
+      flex: 1;
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .batteryMy_page_list_item_title {
+      font-size: 12Px;
+      color: #879ABD;
+    }
+  }
+
+  .formSubmit_btn {
+    background: #1B80F4;
+    text-align: center;
+    color: #ffffff;
+    margin:10Px 20Px;
+    font-size: 14Px;
+  }
+
+
+  .header_left_qrc {
+
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+
+    .header_left_qrc_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .batteryMy_page_list_item_input {
+
+    overflow: hidden;
+
+    .arrow_right_img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .text_input {
+      margin-top: 10px;
+      border-bottom: 1px solid #154075;
+    }
+  }
+
+  .user_avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    .user_avatar_img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
