@@ -14,8 +14,16 @@ export default class Batteryservice extends Component {
 
   };
 
-  navigateToBatteryMore = ()=> {
+  navigateToBatteryMore = () => {
     Taro.navigateTo({ url: '/pages/batteryMore/index' })
+  }
+
+  makePhoneCall = () => {
+    Taro.makePhoneCall({
+      phoneNumber: '0755-27331360'
+    }).then(res => {
+      console.log(res);
+    }).catch(() => { })
   }
 
   render() {
@@ -31,7 +39,7 @@ export default class Batteryservice extends Component {
               <Image className='arrow_right_img' src={arrow_right_img} />
             </View>
           </View>
-          <View className='batteryMy_page_list_item ac_action'>
+          <View className='batteryMy_page_list_item ac_action' onClick={this.makePhoneCall}>
             <View className='batteryMy_page_list_item_title'>
               <View className=''> 客服热线 </View>
               <View className=''> 0755-27331360 </View>

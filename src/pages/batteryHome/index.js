@@ -1,9 +1,15 @@
 import Taro, { Component } from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
 import { AtFab } from 'taro-ui'
+import RuleList from '../../components/RuleList/index';
 
 import './index.scss';
 import l_open_img from '../../assets/battery/icon/l_open.png'
+import icon_a_img from '../../assets/battery/icon/icon_a.png'
+import icon_t_img from '../../assets/battery/icon/icon_t.png'
+import icon_v_img from '../../assets/battery/icon/icon_v.png'
+
+import { set as setGlobalData, get as getGlobalData } from '../../global_data'
 
 export default class Batteryhome extends Component {
 
@@ -21,17 +27,38 @@ export default class Batteryhome extends Component {
   }
 
   componentDidMount = () => {
+    console.log(getGlobalData('shiliangL'));
 
+    setTimeout(() => {
+      setGlobalData('shiliangL','测试修改')
+      console.log(getGlobalData('shiliangL'));
+    }, 2000);
   };
 
   navigateTobatteryHomeInfo = () => {
     Taro.navigateTo({ url: '/pages/batteryInfo/index' })
   }
 
+  onButtonScanCode = () => {
+    Taro.redirectTo({ url: '/pages/batteryScanCode/index' })
+    // Taro.navigateTo({ url: '/pages/batteryScanCode/index' })
+  }
+
   onButtonClick = () => {
     Taro.navigateTo({ url: '/pages/batteryMy/index' })
     // this.setState( prevState => ({ appDrawer: !prevState.appDrawer }))
     // this.setState({ appDrawer: true })
+  }
+
+  useShareAppMessage = (res) => {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '智能电池',
+      // path: '/page/user?id=123'
+    }
   }
 
   render() {
@@ -62,7 +89,7 @@ export default class Batteryhome extends Component {
             </View>
             <View className='batteryCar_right'>
               <View className='batteryCar_right_top ac_action' onClick={this.navigateTobatteryHomeInfo}>
-                <View>  电池状态: <Text className='main_car_text'> 正常 </Text>  </View>
+                <View> 电池状态: <Text className='main_car_text'> 正常 </Text>  </View>
                 <View> {'>'} </View>
               </View>
               <View className='batteryCar_right_bottom'>
@@ -96,9 +123,15 @@ export default class Batteryhome extends Component {
           </View>
 
           <View className='batteryInfoList'>
-            <View className='batteryInfoList'> 温度 </View>
-            <View className='batteryInfoList'> 电压 </View>
-            <View className='batteryInfoList'> 电流 </View>
+            <View className='batteryInfoList'>
+              <RuleList progress='121' iconName='温度' unit='' iconUrl={icon_t_img} />
+            </View>
+            <View className='batteryInfoList'>
+              <RuleList progress='100' iconName='电压' unit='Vdc' iconUrl={icon_v_img} />
+            </View>
+            <View className='batteryInfoList'>
+              <RuleList progress='30' iconName='电流' unit='Amp' iconUrl={icon_a_img} />
+            </View>
           </View>
 
         </View>
@@ -116,6 +149,12 @@ export default class Batteryhome extends Component {
               </View>
             </View>
           </View>
+        </View>
+
+        <View className='myScanCode'>
+          <AtFab onClick={this.onButtonScanCode} size='small'>
+            <Text className='at-fab__icon at-icon at-icon-iphone'></Text>
+          </AtFab>
         </View>
 
         <View className='mycenter'>

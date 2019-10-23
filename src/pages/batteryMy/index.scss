@@ -16,7 +16,8 @@
       align-items: center;
       display: flex;
       justify-content: space-between;
-      .user_name{
+
+      .user_name {
         margin-left: 10px;
       }
     }
@@ -75,4 +76,13 @@
       height: 100%;
     }
   }
+
+  .formSubmit_btn {
+    background: #1B80F4;
+    text-align: center;
+    color: #ffffff;
+    margin: 20Px 20Px;
+    font-size: 14Px;
+  }
+
 }

@@ -1,9 +1,10 @@
 .batteryIntroduce_page {
   background: #0D3461;
-  margin: 10Px 20Px;
+  margin: 20Px 20Px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 
   .batteryIntroduce_page_item {
     padding: 10px 20px;

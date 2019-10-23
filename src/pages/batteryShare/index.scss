@@ -1,0 +1,22 @@
+.batteryShare_page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: space-around;
+
+  .batteryShare_page_item_title {
+    text-align: center;
+    padding: 10Px;
+  }
+
+  .formSubmit_btn {
+    background: #1B80F4;
+    text-align: center;
+    color: #ffffff;
+    margin: 20Px 20Px;
+    font-size: 14Px;
+  }
+}

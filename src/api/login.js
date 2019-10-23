@@ -5,6 +5,12 @@ import config from '../config';
 const { baseUrl } = config
 
 
+export const fetchToke = (payload) => request({
+  url: baseUrl + '/api/Wx/GetToken',
+  method: 'get',
+  payload
+})
+
 export const fetchLogin = (payload) => request({
   url: baseUrl + '/api/weixin/login',
   method: 'POST',

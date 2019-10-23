@@ -1,6 +1,6 @@
 const globalData = {
 
-  shiliangl:'多应用开发'
+  shiliangL:'多应用开发'
 
 }
 

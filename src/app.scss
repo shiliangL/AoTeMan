@@ -21,6 +21,8 @@ page,
 .taro_router,
 .taro_page {
   height: 100%;
+  display: flex;
+  flex-direction: column;
   // background: #0F3259;
   background: #041625;
   color: #F4F6F8;

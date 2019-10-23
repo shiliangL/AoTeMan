@@ -3,7 +3,7 @@
   height: 100%;
 
   .batteryHome_page_top {
-    height: 80Px;
+    height: 20Px; 
     text-align: center;
   }
 
@@ -68,7 +68,7 @@
 
 
     .batteryInfoList {
-      margin: 20Px;
+      margin: 20Px 10Px;
     }
   }
 
@@ -130,7 +130,13 @@
   .mycenter {
     position: fixed;
     bottom: 10Px;
-    right: 20Px;
+    right: 10Px;
+  }
+
+  .myScanCode {
+    position: fixed;
+    bottom: 10Px;
+    left: 10Px;
   }
 
   .appDrawer {

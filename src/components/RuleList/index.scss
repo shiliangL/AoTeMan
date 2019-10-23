@@ -1,0 +1,139 @@
+.ruleList {
+  font-size: 10Px;
+  display: flex;
+  justify-content: space-between;
+
+  .ruleList_left {
+    display: flex;
+    align-items: flex-end;
+
+    .ruleList_left_icon {
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+
+      .ruleList_left_icon_img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .ruleList_left_name {
+      margin-left: 3Px;
+      font-size: 10Px;
+    }
+  }
+
+  .ruleList_right {
+    margin: 0 20px;
+    flex: 1;
+
+    .ruleList_right_name_box {
+      display: flex;
+      align-items: flex-start;
+
+      .name_tage_text {
+        font-size: 12Px;
+        margin-right: 3Px;
+      }
+
+      .name_tage_unit {
+        font-size: 8Px;
+      }
+
+      .border-left {
+        border-right: 1Px solid #5A6875;
+        padding-right: 10px;
+        margin-right: 10px;
+      }
+
+      .flex_box {
+        display: flex;
+        align-items: flex-start;
+      }
+    }
+
+    .ruleList_graduation_progress_line {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 4px;
+
+      .rule-item-m {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        flex: 1;
+
+        .rult-text {
+          position: absolute;
+          color: #888585;
+          margin-top: 2Px;
+          display: block;
+          left: -3px;
+          top: 6px;
+          transform-origin: 0% 0%;
+          // transform: scale(0.7);
+        }
+
+        .rult-line {
+          display: inline-block;
+          height: 6Px;
+          width: 1Px;
+          background: #B9B6B7;
+          position: relative;
+          // transform: scaleX(0.5);
+        }
+
+        &::after {
+          position: absolute;
+          left: 0;
+          top: 0;
+          content: '';
+          height: 8Px;
+          width: 1Px;
+          background: #B9B6B7;
+          // transform: scaleX(0.5);
+        }
+
+        &:nth-last-child(1)::before {
+          position: absolute;
+          right: 0;
+          top: 0;
+          content: '';
+          height: 8Px;
+          width: 1Px;
+          background: #B9B6B7;
+          // transform: scaleX(0.5);
+        }
+      }
+    }
+
+    .ruleList_graduation_progress {
+      width: 100%;
+      height: 20px;
+      overflow: hidden;
+
+      .ruleList_graduation_progress_bar {
+        width: 20%;
+        position: relative;
+        height: 6px;
+        margin-top: 4px;
+        background: rgba(31, 139, 246, 0.97);
+        border-radius: 2px;
+
+        &::after {
+          position: absolute;
+          right: -0.5px;
+          top: -10px;
+          content: '';
+          height: 30px;
+          width: 1Px;
+          box-sizing: border-box;
+          background: #B8B5B5;
+          transform: translateX(-0.5) scaleX(0.5) rotate(0deg);
+        }
+      }
+    }
+  }
+}

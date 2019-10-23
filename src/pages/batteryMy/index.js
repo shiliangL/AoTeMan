@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View, Image } from '@tarojs/components';
+import { View, Image, Button } from '@tarojs/components';
 import './index.scss';
 
 import prcImg from '../../assets/battery/icon/qrc.png'
@@ -82,6 +82,11 @@ export default class Batterymy extends Component {
             </View>
           </View>
         </View>
+
+        <View className='formSubmit_btn_warp'>
+          <Button className='formSubmit_btn ac_action' formType='submit'>  保存 </Button>
+        </View>
+
       </View>
     )
   }

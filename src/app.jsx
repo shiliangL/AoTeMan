@@ -16,7 +16,6 @@ class App extends Component {
   config = {
     pages: [
       'pages/batteryHome/index',
-      'pages/batteryScanCode/index',
       'pages/batteryInfo/index',
       'pages/batteryMy/index',
       'pages/batteryShare/index',
@@ -25,15 +24,7 @@ class App extends Component {
       'pages/batteryIntroduce/index',
       'pages/batteryService/index',
       'pages/batteryMore/index',
-      'pages/index/index',
-      'pages/my/index',
-      'pages/course/index',
-      'pages/coach/index',
-      'pages/login/index',
-      'pages/placeOrder/index',
-      'pages/order/index',
-      'pages/webview/index',
-      'pages/scanCode/index',
+      'pages/batteryScanCode/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,23 +33,23 @@ class App extends Component {
       navigationBarTextStyle: 'white',
       // navigationStyle:'custom',
     },
-    tabBar: {
-      color: "#666",
-      selectedColor: "#24d75f",
-      backgroundColor: "#fafafa",
-      borderStyle: 'black',
-      list: [{
-        pagePath: "pages/index/index",
-        iconPath: "./assets/icon/home.png",
-        selectedIconPath: "./assets/icon/home.png",
-        text: "首页"
-      }, {
-        pagePath: "pages/my/index",
-        iconPath: "./assets/icon/my.png",
-        selectedIconPath: "./assets/icon/my.png",
-        text: "个人"
-      }]
-    },
+    // tabBar: {
+    //   color: "#666",
+    //   selectedColor: "#24d75f",
+    //   backgroundColor: "#fafafa",
+    //   borderStyle: 'black',
+    //   list: [{
+    //     pagePath: "pages/index/index",
+    //     iconPath: "./assets/icon/home.png",
+    //     selectedIconPath: "./assets/icon/home.png",
+    //     text: "首页"
+    //   }, {
+    //     pagePath: "pages/my/index",
+    //     iconPath: "./assets/icon/my.png",
+    //     selectedIconPath: "./assets/icon/my.png",
+    //     text: "个人"
+    //   }]
+    // },
   }
 
   componentDidMount() {
