@@ -135,24 +135,10 @@ export default class batteryScanCode extends Component {
   }
 
   componentDidMount = () => {
-
-    console.log(this.state.BatteryBLEData);
-
     setTimeout(() => {
       this.openBluetoothAdapter()
     }, 200);
-    Taro.getSystemInfo({
-      success: res => console.log(res.platform)
-    }).then(res => console.log(res.platform))
-
-    Taro.getUserInfo().then(_ => {
-      console.log(_);
-
-    }).catch(e => {
-      console.log(e);
-
-    })
-  };
+  }
 
   scanCode = () => {
     Taro.scanCode({ onlyFromCamera: true }).then(({ result }) => {
@@ -472,6 +458,7 @@ export default class batteryScanCode extends Component {
 
     return (
       <View className='batteryScanCode_page'>
+        {/* <RuleList /> */}
         <View className='scanCode_mian'>
           {/* <View className='scanCode_text'> 请点击“扫描绑定电池”扫描电池二维码进行绑定使用 </View>
           <View className='scanCodeBox'>
