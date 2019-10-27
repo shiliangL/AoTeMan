@@ -1,0 +1,13 @@
+.batteryMore_page {
+  background: #0D3461;
+  margin: 10Px 20Px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+
+  .batteryMore_page_item {
+    padding: 10px 20px;
+  }
+}
